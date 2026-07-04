@@ -15,7 +15,7 @@ class KITTIPublisher(Node):
 
         self.image_dir = self.get_parameter('image_dir').value
         self.frame_rate = self.get_parameter('frame_rate').value
-
+        
         self.img_pub = self.create_publisher(Image, '/camera/image_raw', 10)
         self.info_pub = self.create_publisher(CameraInfo, '/camera/camera_info', 10)
 
@@ -28,7 +28,6 @@ class KITTIPublisher(Node):
         ])
         self.index = 0
 
-        # Timer
         self.timer = self.create_timer(1.0 / self.frame_rate, self.publish_frame)
 
         self.get_logger().info("KITTI Publisher Node Started")
