@@ -2,12 +2,10 @@
 
 from pathlib import Path
 
-# Paths
 rgb_dir = Path("/home/mhatre/ros2_humble/data/03/image_0")
 depth_dir = Path("/home/mhatre/ros2_humble/data/03/depth")
 output_file = Path("/home/mhatre/ros2_humble/data/03/associations.txt")
 
-# Supported image extensions
 extensions = {".png", ".jpg", ".jpeg"}
 
 rgb_files = sorted(
