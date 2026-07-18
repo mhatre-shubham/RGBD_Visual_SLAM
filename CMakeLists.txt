@@ -42,12 +42,6 @@ install(TARGETS slam_rgbd_sync_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
-# Install
-install(TARGETS
-  slam_rgbd_sync_node
-  DESTINATION lib/${PROJECT_NAME}
-)
-
 # Python
 install(PROGRAMS
   src/kitti_publisher.py
