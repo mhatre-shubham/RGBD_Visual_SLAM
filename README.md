@@ -30,8 +30,39 @@ ORB-SLAM3 running on the generated RGB-D stream.
   <img src="results/trajectory_comparison.png" width="400" alt="Trajectory Comparison"/>
 </p>
 
----
 
+## Installation
+
+ORB-SLAM3 is included as a git submodule inside the `external/` directory.
+
+Clone the repository with submodules:
+
+```bash
+git clone --recursive https://github.com/mhatre-shubham/RGBD_Visual_SLAM.git
+```
+
+Install dependencies and build ROS 2 Package
+```bash
+colcon build --packages-select rgbd_slam
+source install/setup.bash
+```
+
+## Running the Pipeline
+Start the ROS 2 pipeline:
+```bash
+ros2 launch rgbd_slam pipeline_launch.py
+```
+
+Running ORB-SLAM3
+```bash
+cd external/ORB_SLAM3
+
+./Examples/RGB-D/rgbd_tum \
+Vocabulary/ORBvoc.txt \
+Examples/RGB-D/KITTI_RGBD.yaml \
+/path/to/dataset/ \
+/path/to/generated_dataset/associations.txt
+```
 ## Repository Structure
 
 ```
@@ -42,7 +73,7 @@ RGBD_Visual_SLAM/
 │   ├── src/                       
 │   │   ├── kitti_publisher.py        # Publishes KITTI RGB images
 │   │   ├── depth_anything_node.py    # Depth Anything V2 inference
-│   │   └── slam_rgbd_sync_node.cpp   # Synchronizes RGB and depth images for RGB-D SLAM
+│   │   └── slam_rgbd_sync_node.cpp   # Synchronizes RGB and dept images for RGB-D SLAM
 │   │
 │   ├── launch/                       # ROS 2 launch file
 │   │   └── pipeline_launch.py      
@@ -66,14 +97,4 @@ RGBD_Visual_SLAM/
 │
 ├── README.md                         
 └── .gitignore
-```
-
-## External Dependencies
-
-ORB-SLAM3 is included as a git submodule inside the `external/` directory.
-
-Clone the repository with submodules:
-
-```bash
-git clone --recursive https://github.com/mhatre-shubham/RGBD_Visual_SLAM.git
 ```
