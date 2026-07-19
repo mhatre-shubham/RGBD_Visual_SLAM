@@ -29,7 +29,7 @@ public:
                       std::placeholders::_1,
                       std::placeholders::_2));
 
-        output_path_ = "/home/mhatre/dataset_rgbd";
+        output_path_ = "home/mhatre/ros2_humble/data/03";
 
         // Create dataset folders
         std::filesystem::create_directories(output_path_ + "/rgb");

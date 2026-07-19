@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-rgb_dir = Path("/home/mhatre/ros2_humble/data/03/image_0")
+rgb_dir = Path("/home/mhatre/ros2_humble/data/03/image_2")
 depth_dir = Path("/home/mhatre/ros2_humble/data/03/depth")
 output_file = Path("/home/mhatre/ros2_humble/data/03/associations.txt")
 

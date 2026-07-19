@@ -2,7 +2,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-rgb_dir = Path("/home/mhatre/ros2_humble/data/03/image_0")
+rgb_dir = Path("/home/mhatre/ros2_humble/data/03/image_2")
 depth_vis_dir = Path("/home/mhatre/ros2_humble/data/03/depth_vis")
 
 output_video = Path("./results/depth_video.mp4")

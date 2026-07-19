@@ -5,7 +5,7 @@ import numpy as np
 import torch
 from metric_depth.depth_anything_v2.dpt import DepthAnythingV2
 
-INPUT_DIR = Path("/home/mhatre/ros2_humble/data/03/image_0")
+INPUT_DIR = Path("/home/mhatre/ros2_humble/data/03/image_2")
 OUTPUT_DEPTH_DIR = Path("/home/mhatre/ros2_humble/data/03/depth")
 OUTPUT_VIS_DIR = Path("/home/mhatre/ros2_humble/data/03/depth_vis")
 
