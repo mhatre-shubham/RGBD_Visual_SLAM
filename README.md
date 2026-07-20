@@ -17,9 +17,8 @@ Depth estimation from a single RGB image.
 ### 2. ORB-SLAM3 RGB-D SLAM
 
 ORB-SLAM3 running on the generated RGB-D stream.
-
 <p align="center">
-  <img src="results/visual_slam.gif" width="500" alt="ORB-SLAM3"/>
+  <img src="results/visual_slam_1.gif" width="500" alt="ORB-SLAM3"/>
 </p>
 
 ---
