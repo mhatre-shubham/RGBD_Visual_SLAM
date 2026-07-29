@@ -40,18 +40,8 @@ MODEL_CONFIGS = {
 }
 
 def load_model() -> DepthAnythingV2:
-    """
-    Load Depth Anything V2 model.
-
-    Returns:
-        Initialized and loaded model.
-    """
-    device = torch.device(
-        "cuda" if torch.cuda.is_available() else "cpu"
-    )
-
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
-
     model = DepthAnythingV2(**MODEL_CONFIGS[ENCODER], max_depth=MAX_DEPTH)
 
     model.load_state_dict(
@@ -80,9 +70,7 @@ def visualize_depth(depth: np.ndarray) -> np.ndarray:
 
     depth_min = np.percentile(depth, 5)
     depth_max = np.percentile(depth, 95)
-
     normalized = np.clip((depth - depth_min) / (depth_max - depth_min + 1e-6), 0.0, 1.0,)
-
     depth_uint8 = (normalized * 255).astype(np.uint8)
 
     return cv2.applyColorMap(depth_uint8, cv2.COLORMAP_INFERNO)
@@ -97,7 +85,6 @@ def save_depth(depth: np.ndarray, output_path: Path) -> None:
         output_path: Save destination.
     """
     depth_mm = (depth * 1000).astype(np.uint16)
-
     cv2.imwrite(str(output_path), depth_mm)
 
 
@@ -109,7 +96,6 @@ def process_images(model: DepthAnythingV2) -> None:
         model: Loaded depth estimation model.
     """
     OUTPUT_DEPTH_DIR.mkdir(parents=True, exist_ok=True)
-
     OUTPUT_VIS_DIR.mkdir(parents=True, exist_ok=True)
 
     image_files = sorted([
@@ -121,9 +107,7 @@ def process_images(model: DepthAnythingV2) -> None:
     print(f"Found {len(image_files)} images")
 
     for index, image_path in enumerate(image_files, start=1):
-
         rgb = cv2.imread(str(image_path))
-
         if rgb is None:
             print(f"Skipping: {image_path.name}")
             continue
@@ -132,15 +116,10 @@ def process_images(model: DepthAnythingV2) -> None:
             depth = model.infer_image(rgb)
 
         depth = depth.astype(np.float32)
-
         depth_path = (OUTPUT_DEPTH_DIR / image_path.with_suffix(".png").name)
-
         save_depth(depth, depth_path)
-
         vis = visualize_depth(depth)
-
         vis_path = (OUTPUT_VIS_DIR / image_path.name)
-
         cv2.imwrite(str(vis_path), vis)
 
         print(
@@ -152,7 +131,6 @@ def process_images(model: DepthAnythingV2) -> None:
 def main() -> None:
     model = load_model()
     process_images(model)
-
     print("\nFinished generating depth maps.")
 
 

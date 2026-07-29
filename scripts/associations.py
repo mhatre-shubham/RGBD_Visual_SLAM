@@ -8,9 +8,7 @@ output_file = Path("/home/mhatre/ros2_humble/data/03/associations.txt")
 
 extensions = {".png", ".jpg", ".jpeg"}
 
-rgb_files = sorted(
-    [f for f in rgb_dir.iterdir() if f.suffix.lower() in extensions]
-)
+rgb_files = sorted([f for f in rgb_dir.iterdir() if f.suffix.lower() in extensions])
 
 with open(output_file, "w") as f:
     for i, rgb_path in enumerate(rgb_files):

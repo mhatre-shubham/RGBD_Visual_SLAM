@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 GT_FILE = "/home/mhatre/ros2_humble/data/data_odometry_poses/dataset/poses/03.txt"
-SLAM_FILE = "/home/mhatre/ros2_humble/src/rgbd_slam/external/ORB_SLAM3/CameraTrajectory_03_01.txt"
+SLAM_FILE = "/home/mhatre/ros2_humble/src/rgbd_slam/external/ORB_SLAM3/CameraTrajectory_03.txt"
 
 RESULTS_DIR = "./results"
 OUTPUT_FILE = os.path.join(RESULTS_DIR, "trajectory_comparison_03_01.png")

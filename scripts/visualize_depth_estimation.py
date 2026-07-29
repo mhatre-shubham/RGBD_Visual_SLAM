@@ -29,14 +29,11 @@ video = cv2.VideoWriter(
 )
 
 for rgb_path, depth_path in zip(rgb_files, depth_files):
-
     rgb = cv2.imread(str(rgb_path))
     depth = cv2.imread(str(depth_path))
-
     rgb = cv2.resize(rgb, (w, h))
     depth = cv2.resize(depth, (w, h))
     frame = np.hstack((rgb, depth))
-
     video.write(frame)
 
 video.release()
