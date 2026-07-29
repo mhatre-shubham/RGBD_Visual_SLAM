@@ -14,9 +14,9 @@ Depth estimation from a single RGB image.
 
 ---
 
-### 2. ORB-SLAM3 RGB-D SLAM
+### 2. Visual SLAM
 
-ORB-SLAM3 running on the generated RGB-D stream.
+ORB-SLAM3 running on the generated RGB-D stream. (Visualization may take a few seconds to load.)
 <p align="center">
   <img src="results/visual_slam_1.gif" width="500" alt="ORB-SLAM3"/>
 </p>
@@ -62,6 +62,40 @@ Examples/RGB-D/KITTI_RGBD.yaml \
 /path/to/dataset/ \
 /path/to/generated_dataset/associations.txt
 ```
+
+## Running without ROS 2 (Offline Pipeline)
+The project can also be executed without ROS2. This workflow processes an image sequence offline, generates metric depth maps, creates an RGB-D dataset compatible with ORB-SLAM3, and evaluates the estimated trajectory.
+
+### Step 1: Generate Metric Depth Maps
+
+```bash
+python3 scripts/offline_depth_estimation.py
+```
+
+### Step 2: Create RGB-Depth Associations
+
+```bash
+python3 scripts/create_association.py
+```
+
+### Step 3: Run ORB-SLAM3
+
+```bash
+cd external/ORB_SLAM3
+
+./Examples/RGB-D/rgbd_tum \
+Vocabulary/ORBvoc.txt \
+Examples/RGB-D/KITTI_RGBD.yaml \
+/path/to/dataset/ \
+/path/to/generated_dataset/associations.txt
+```
+
+### Step 4: Evaluate the Trajectory
+
+```bash
+python scripts/plot_trajectory.py
+```
+
 ## Repository Structure
 
 ```
