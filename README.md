@@ -29,6 +29,10 @@ ORB-SLAM3 running on the generated RGB-D stream. (Visualization may take a few s
   <img src="results/trajectory_comparison.png" width="400" alt="Trajectory Comparison"/>
 </p>
 
+## Architecture
+<p align="center">
+  <img src="results/Architecture.png" width="400" alt="Architecture"/>
+</p>
 
 ## Installation
 
