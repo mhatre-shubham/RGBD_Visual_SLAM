@@ -31,7 +31,7 @@ ORB-SLAM3 running on the generated RGB-D stream. (Visualization may take a few s
 
 ## Architecture
 <p align="center">
-  <img src="results/Architecture.png" width="400" alt="Architecture"/>
+  <img src="results/architecture.png" width="400" alt="Architecture"/>
 </p>
 
 ## Installation
